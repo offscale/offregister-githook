@@ -1,0 +1,13 @@
+[Unit]
+Description="%(DESCRIPTION)s"
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile="%(PID)s"
+environment=DAEMON="%(DAEMON)s"
+environment=DAEMON_ARGS="%(DAEMON_ARGS)s"
+ExecStart=$DAEMON $DAEMON_ARGS
+
+[Install]
+WantedBy=multi-user.target
