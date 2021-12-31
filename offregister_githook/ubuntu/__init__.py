@@ -1,15 +1,13 @@
 from operator import le
 from os import path
 
+from fabric.contrib.files import exists, upload_template
+from fabric.operations import run, sudo
+from offregister_fab_utils.apt import apt_depends
 from offregister_fab_utils.misc import require_os_version
 from offregister_fab_utils.ubuntu.version import ubuntu_version
 from offutils import update_d, validate_conf
 from pkg_resources import resource_filename
-
-from fabric.operations import sudo, run
-from fabric.contrib.files import upload_template, exists
-
-from offregister_fab_utils.apt import apt_depends
 
 from offregister_githook import __author__, logger
 
