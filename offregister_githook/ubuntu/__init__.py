@@ -12,7 +12,7 @@ from pkg_resources import resource_filename
 from offregister_githook import __author__, logger
 
 
-def install_hookserve0(*args, **kwargs):
+def install_hookserve0(c, *args, **kwargs):
     gz = "hookserve.gz"
     base = gz.partition(path.extsep)[0]
     if not exists(c, runner=c.run, path="/usr/local/bin/{base}".format(base=base)):
@@ -27,7 +27,7 @@ def install_hookserve0(*args, **kwargs):
         c.sudo("chmod +x /usr/local/bin/{base}".format(base=base))
 
 
-def setup_hookserve1(*args, **kwargs):
+def setup_hookserve1(c, *args, **kwargs):
     os_version = ubuntu_version()
 
     default_conf = {
@@ -100,7 +100,7 @@ def setup_hookserve1(*args, **kwargs):
 
 
 @require_os_version(15.04, le)
-def setup_git_pull_upstart2(*args, **kwargs):
+def setup_git_pull_upstart2(c, *args, **kwargs):
     if exists(c, runner=c.run, path="/run/systemd/system"):
         raise NotImplementedError("SystemD not implemented yet")
 
