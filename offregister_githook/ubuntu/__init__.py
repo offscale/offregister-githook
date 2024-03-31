@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from operator import le
 from os import path
 
